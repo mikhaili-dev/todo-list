@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="image/png" rel="icon" href="./todo-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/small-width.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <span class="header">
+                <img src="images/bullet-list(60x60).png" class="first-column" alt="В планах">
+            </span>
+            <span class="header">
+                <img src="images/loading(60x60).png" class="second-column" alt="В процессе">
+            </span>
+            <span class="header">
+                <img src="images/checkmark(60x60).png" class="third-column" alt="Завершено">
+            </span>
+        </header>
+        <div class="placeholders-wrapper">
+            <div class="placeholder">
+                <div class="list-wrapper first-column active">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="new-note-plug">
+                    <img src="images/plus-icon.png" alt="Добавить">
+                </div>
+                <div class="btn-container">
+                    <button class="open-form-btn"></button>
+                </div>
+            </div>
+            <div class="placeholder">
+                <div class="list-wrapper second-column">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="new-note-plug">
+                    <img src="images/plus-icon.png" alt="Добавить">
+                </div>
+            </div>
+            <div class="placeholder">
+                <div class="list-wrapper third-column">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="new-note-plug">
+                    <img src="images/plus-icon.png" alt="Добавить">
+                </div>
+                <div class="btn-container">
+                    <button class="delete-notes-btn"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="license-links"> 
+        The
+        <a target="_blank" href="https://icons8.com/icon/78975/bullet-list" rel="noreferrer">Bullet List</a>, 
+        <a target="_blank" href="https://icons8.com/icon/102455/loading" rel="noreferrer">Loading</a>,
+        <a target="_blank" href="https://icons8.com/icon/59757/checkmark" rel="noreferrer">Checkmark</a>,
+        <a target="_blank" href="https://icons8.com/icon/fJDaWLso990w/check" rel="noreferrer">Check</a>
+        icons by 
+        <a target="_blank" href="https://icons8.com" rel="noreferrer">Icons8</a>
+    </span>
+    <div class="modal">
+        <form>
+            <span class="close-form-btn">✖</span>
+            <div>
+                <label for="text-input">Новая заметка</label>
+                <input 
+                    type="text" 
+                    id="text-input"
+                    autocapitalize="on"
+                    minlength="1"
+                    placeholder="Введите текст заметки"
+                    spellcheck="false"
+                    autocomplete="off"
+                    >
+            </div>
+            <span class="warning-message">Заполните поле</span>
+            <button>Отправить</button>
+        </form>
+    </div>
+    <script src="./scripts/commonFunctions.js" type="module"></script>
+    <script src="./scripts/changeColumn.js" type="module"></script>
+    <script src="./scripts/smallWidth.js" type="module"></script>
+    <script src="./scripts/app.js" type="module"></script>
+</body>
+</html>

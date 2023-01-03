@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgb(238, 238, 238);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(192, 192, 192);
+    opacity: .3;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: rgb(148, 148, 148);
+}
+html {
+    height: 100%;
+}
+::selection {
+    background-color: #bdbdbd;
+}
+body {
+    height: 100%;
+    min-height: 300px;
+    position: relative;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    background-attachment: fixed;
+    user-select: none;             
+}
+button {
+    cursor: pointer
+}
+span, button, input, label, li, time {
+    font-family: 'Roboto', sans-serif;
+}
+.wrapper {
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: fit-content;
+    height: 15%;
+    margin-bottom: 5vh;
+}
+.header {
+    height: fit-content;
+}
+.header > img {
+    display: block;
+    margin: auto;
+}
+.placeholders-wrapper {
+    display: flex;
+    justify-content: space-around;
+    height: 80%;
+    margin-right: 5px;
+}
+.placeholder {
+    height: fit-content;
+    width: 350px;
+    height: 100%;
+}
+.list-wrapper {
+    overflow-y: auto;
+    height: 80%;
+}
+ul {
+    margin: auto;
+    width: 85%;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+li {
+    font-size: 1.2em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: grab;
+    overflow-x: hidden;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: hidden;
+}
+li.dragged {
+    position: fixed;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+}
+li:last-of-type {
+    margin-bottom: 0;
+}
+.first-column li {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffc9c7;
+}
+.second-column li {
+    background-color: #ffff94;
+}
+.third-column li {
+    background-color: #caffb1;
+}
+.note-plug {
+    background-color: inherit !important;
+    position: relative;
+}
+.note-plug::before, 
+.note-plug::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+}
+.note-plug::before {
+    top: 0;
+    left: 0;
+    border-left: 3px solid rgb(255, 136, 0);
+    border-top: 3px solid rgb(255, 136, 0);
+}
+.note-plug::after {
+    bottom: 0;
+    right: 0;
+    border-right: 3px solid rgb(255, 136, 0);
+    border-bottom: 3px solid rgb(255, 136, 0);
+}
+li > p {
+    margin: auto;
+    width: fit-content;
+    overflow-wrap: anywhere;
+}
+.second-column li > p,
+.third-column li > p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+li > span, li > time {
+    display: block;
+    border-left: 1px solid rgb(170, 170, 170);
+    color: rgb(119, 119, 119);
+    padding: 0 5px;
+}
+.new-note-plug {
+    width: 100%;
+    height: 8%;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: sticky;
+    bottom: 0;
+}
+.new-note-plug.long {
+    height: 15%;
+}
+.new-note-plug.active {
+    display: flex;
+}
+.btn-container {
+    height: 10%;
+    width: 90%;
+    margin: 5px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-container.hidden {
+    display: none;
+}
+.open-form-btn, .delete-notes-btn {
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    border: 0;
+    transition: transform .3s, box-shadow .3s;
+}
+.open-form-btn {
+    background-color: #a1a1a1;
+    background: linear-gradient(to right, #bcff98, #8bcf65);
+    color:#4d4d4d;
+}
+.open-form-btn:hover, .delete-notes-btn:hover {
+    transform: translateY(-3px);
+}
+.open-form-btn:hover {
+    box-shadow: 0px 3px 2px rgb(37, 87, 45);
+}
+.delete-notes-btn:hover {
+    box-shadow: 0px 3px 2px rgb(82, 34, 30);
+}
+.delete-notes-btn {
+    background-color: #d6403b;
+    background: linear-gradient(138deg, #ff7070,#db473c);
+    color:rgb(250, 250, 250);
+}
+.open-form-btn::after {
+    content: 'Добавить';
+}
+.delete-notes-btn::after {
+    content: "Очистить"
+}
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(77, 77, 77, .4);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modal.active {
+    display: flex;
+}
+.modal > form {
+    width: 300px;
+    height: 300px;
+    background-color: #f1f1f1;
+    position: relative;
+}
+.close-form-btn {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    cursor: default;
+}
+.close-form-btn:hover {
+    color: rgb(252, 111, 111)
+}
+form > div {
+    margin-top: 30px;
+}
+label {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    font-size: 1.5em;
+    margin-bottom: 10px;;
+}
+input[type=text] {
+    display: block;
+    padding: 0;
+    height: 30px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    outline: 0;
+    border: 0;
+    font-size: 1.2em;
+    background-color: inherit;
+    border-bottom: 1px solid #949494;
+}
+input[type=text]:focus {
+    border-bottom: 1.3px solid #000000;
+}
+input[type=text]::placeholder {
+    opacity: .8;
+}
+.warning-message {
+    width: fit-content;
+    margin: 20px auto;
+    color:rgb(196, 0, 0);
+    display: none;
+}
+.warning-message.active {
+    display: block;
+}
+form > button {
+    background-color: inherit;
+    width: fit-content;
+    font-size: 1.5em;
+    border: 0;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-bottom: 2px solid #949494;
+    padding-bottom: 2px;
+}
+form > button:hover {
+    border-bottom: 2px solid #1a1a1a;
+}
+.license-links {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    color:rgb(95, 95, 95);
+}
+.license-links.hidden {
+    display: none;
+}
+a {
+    color: rgb(65, 65, 65)
+}
+
+
+@media (max-width: 1100px) {
+    /* Ниже -- изменение режима работы кнопок для поддержки touch-устройств */
+
+    .open-form-btn:hover, .delete-notes-btn:hover {
+        transform: none;
+    }
+    .open-form-btn:hover {
+        box-shadow: none;
+    }
+    .delete-notes-btn:hover {
+        box-shadow: none;
+    }
+    .open-form-btn:active, .delete-notes-btn:active {
+        transform: translateY(-3px);
+    }
+    .open-form-btn:active {
+        box-shadow: 0px 3px 2px rgb(37, 87, 45);
+    }
+    .delete-notes-btn:active {
+        box-shadow: 0px 3px 2px rgb(82, 34, 30);
+    }
+    form > button:hover {
+        border-bottom: 2px solid #949494;
+    }
+    form > button:active {
+        border-bottom: 2px solid #1a1a1a;
+    }
+    
+}
+@media (max-width: 950px) {
+    li time,
+    li span {
+        display: none;
+    }
+    li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    li > p {
+        width: 100% !important;
+        padding: 0;
+    }
+}
+@media (max-height: 600px) {
+    .list-wrapper {
+        height: 70%;
+    }
+    .btn-container {
+        height: 30% !important;
+    }
+    .new-note-plug.long {
+        height: 20%;
+    }
+}
+@media (max-height: 350px) {
+    .license-links {
+        font-size: .7em !important;
+    }
+}
+@media (max-width: 950px), (max-height: 850px) {
+    .open-form-btn, .delete-notes-btn {
+        display: block;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .open-form-btn::after {
+        content: '+'
+    }
+    .delete-notes-btn::after {
+        content: '-'
+    }
+}
