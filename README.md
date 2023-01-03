@@ -63,7 +63,7 @@
 При такой ширине отсутствуют вышеуказанные подробности, а также уменьшены кнопки: изменены их наименования и ширина.
 
 <p align="center">
-	<img alt="Перемещение заметки при широком экране" width="65%" src="./readme-assets/middle-width-interface.png">
+	<img alt="Средний интерфейс" width="65%" src="./readme-assets/middle-width-interface.png">
 </p>
 
 ### Узкоэкранный формат (`max-width: 600px`)
@@ -71,7 +71,7 @@
 На маленьких экранах будет одображаться одна колонка. Переместиться к другой колонке можно при нажатии на одну из картинок сверху.
 
 <p align="center">
-	<img alt="Перемещение заметки при широком экране" width="50%" src="./readme-assets/small-width-interface.png">
+	<img alt="Узкоэкранный интерфейс" width="30%" src="./readme-assets/small-width-interface.png">
 </p>
 
 #### Перемещение заметки с помощью *swipe*
