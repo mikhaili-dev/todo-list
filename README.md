@@ -1,6 +1,6 @@
 <h1 align="center">Список дел</h1>
 <p align="center">
-	<img alt="Широкий, подробный интерфейс" width="70%" src="./readme-assets/wide-width-interface.png">
+	<img alt="Широкий, подробный интерфейс" width="90%" src="./readme-assets/wide-width-interface.png">
 </p>
 <h2 align="center">
 	<a href="http://todo.mikhaili.infinityfreeapp.com/" target="_blank">Демо</a>
@@ -39,7 +39,7 @@
 #### Перемещение заметки с помощью перестакивания по экрану
 
 <p align="center">
-	<img alt="Перемещение заметки при широком экране" width="50%" src="https://media.giphy.com/media/ykZbwK9w3Mt8Bm04z6/giphy.gif">
+	<img alt="Перемещение заметки при широком экране" width="75%" src="https://media.giphy.com/media/ykZbwK9w3Mt8Bm04z6/giphy.gif">
 </p>
 
 При нажатии заметка *поднимается*, а на её месте появляется элемент, занимающий её место на время перетаскивания. 
